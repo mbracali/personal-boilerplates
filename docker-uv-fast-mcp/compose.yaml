@@ -1,0 +1,50 @@
+name: "personal-boilerplates-fast-mcp"
+
+services:
+  app:
+    # Build configuration
+    build:
+      context: .                        # Look for Dockerfile in current directory
+      dockerfile: Dockerfile            # Explicit Dockerfile name (good for multi-stage setups)
+
+    # Image naming (useful for tagging and pushing to a registry)
+    image: personal-boilerplates-fast-mcp:latest
+
+    # Container name (makes docker ps / logs easier to read)
+    container_name: personal-boilerplates-fast-mcp
+
+    # Network mapping: "HOST_PORT:CONTAINER_PORT"
+    ports:
+      - "8000:8000"
+
+    # If there is a .env file, load it into the container
+    env_file:
+      - path: .env
+        required: false
+
+    # Connects your host files to the container
+    # The ':Z' label is vital for Podman/SELinux permissions
+    # volumes:
+    #   - .:/app:Z
+
+    # Restart policy
+    restart: unless-stopped             # Auto-restarts unless you manually stop it
+
+    # Health check — Docker will monitor if your API is actually responding
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s                     # Check every 30 seconds
+      timeout: 10s                      # Fail if no response in 10 seconds
+      retries: 3                        # Mark unhealthy after 3 failures
+      start_period: 10s                 # Grace period on container startup
+
+    # Resource limits (prevents the container from consuming all host resources)
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"                   # Max CPU the machine can use
+          memory: 1024M                 # Max RAM the machine can use
+        reservations:
+          cpus: "1"                     # Minimum size/amount of CPU for the container to run
+          memory: 256M                  # Minimum size/amount of RAM for the container to run
+
