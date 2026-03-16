@@ -1,0 +1,16 @@
+name: "docker-uv-htmx"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: docker-uv-htmx:latest
+    container_name: docker-uv-htmx
+
+    ports:
+      - "8000:8000"
+
+    restart: unless-stopped
+

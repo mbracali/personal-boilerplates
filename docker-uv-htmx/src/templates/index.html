@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>docker-uv-htmx</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
+  </head>
+  <body>
+    <h1>HTMX Counter</h1>
+    <button
+      hx-get="/counter"
+      hx-target="#counter"
+      hx-swap="outerHTML"
+      hx-vals='{"value": 0}'
+    >
+      Start
+    </button>
+
+    <div id="counter"></div>
+  </body>
+</html>

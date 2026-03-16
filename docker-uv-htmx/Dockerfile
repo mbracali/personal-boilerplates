@@ -1,8 +1,8 @@
 FROM docker.io/library/python:3.14-slim-bookworm
 
 # Docker labeling
-LABEL personal.boilerplates.name="docker-uv-fast-api" \
-      personal.boilerplates.version="1.0.0" \
+LABEL personal.boilerplates.name="docker-uv-htmx" \
+      personal.boilerplates.version="0.1.0" \
       personal.boilerplates.created="2026-03-16" \
       personal.boilerplates.authors="marcelo.bracali"
 
@@ -22,7 +22,13 @@ ENV PATH="/usr/local/bin:${PATH}" \
     PYTHONPATH=/app \
     UV_PROJECT_ENVIRONMENT=/app/.venv
 
-# Work as root while building deps
+# Create non-root user and give ownership of /app
+RUN useradd -m boilerplater \
+    && chown -R boilerplater:boilerplater /app
+
+USER boilerplater
+
+# Work from /app as non-root
 WORKDIR /app
 
 # Copy project metadata first (for dependency caching)
@@ -31,17 +37,12 @@ COPY pyproject.toml uv.lock ./
 # Sync uv dependencies (creates /app/.venv)
 RUN uv sync --frozen --no-dev
 
-# Now create non-root user and give it ownership of /app and the venv
-RUN useradd -m boilerplater \
-    && chown -R boilerplater:boilerplater /app
-
-USER boilerplater
-
 # Copy the rest of the application to the container
 COPY . .
 
-# API port
+# Web port
 EXPOSE 8000
 
 # Run the FastAPI app via uvicorn through uv
-CMD ["uv", "run", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uv", "run", "--no-sync", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
+

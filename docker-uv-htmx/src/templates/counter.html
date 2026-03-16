@@ -1,0 +1,10 @@
+<div id="counter">
+  <p>Value: {{ value }}</p>
+  <button
+    hx-get="/counter?value={{ value + 1 }}"
+    hx-target="#counter"
+    hx-swap="outerHTML"
+  >
+    Increment
+  </button>
+</div>
