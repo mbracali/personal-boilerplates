@@ -1,0 +1,22 @@
+name: "boilerplate-fast-mcp"
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: boilerplate-fast-mcp/Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+      - ${MARKDOWN_REPO}:/app/markdown_repo
+    # Extremely important for Podman Desktop on MacOS:
+    # Forces the container uid/gid to map directly to your MacOS user, preventing Permission Denied
+    userns_mode: "keep-id"
+    environment:
+      - LLM_URL=${OLLAMA_LOCAL_MODEL_URL}
+      - LLM_KEY=${OLLAMA_LOCAL_MODEL_KEY}
+      - LITELLM_LOG=ERROR
+      - DEEPEVAL_VERBOSE=false

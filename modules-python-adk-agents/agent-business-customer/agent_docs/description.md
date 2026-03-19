@@ -1,0 +1,1 @@
+Representative of the individual (or company) funding and commissioning the project. Defines success criteria and validates the final product meets their needs.

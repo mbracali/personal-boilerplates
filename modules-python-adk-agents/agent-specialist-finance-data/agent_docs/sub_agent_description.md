@@ -1,0 +1,1 @@
+Very founded finance specialist, with access to public APIs about finance, stocks, crypto, etc.

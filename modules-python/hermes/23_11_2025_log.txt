@@ -1,0 +1,18 @@
+23/11/2025 01:57:29 | ROOT@TEST_APP | LOG | System starting 
+23/11/2025 01:57:29 | ROOT@TEST_APP | LOG | Started 
+23/11/2025 01:57:29 | ROOT@TEST_APP | LOG | Trying to start the log system 
+23/11/2025 01:57:29 | ROOT@TEST_APP | LOG | Think it's working! 
+23/11/2025 01:57:29 | ROOT@TEST_APP | LOG | Looks like this when I fail 
+23/11/2025 01:57:29 | ROOT@TEST_APP | LOG | Look for some easters! 
+23/11/2025 01:57:30 | ROOT@TEST_APP | LOG | System starting 
+23/11/2025 01:57:30 | ROOT@TEST_APP | LOG | Started 
+23/11/2025 01:57:30 | ROOT@TEST_APP | LOG | Trying to start the log system 
+23/11/2025 01:57:30 | ROOT@TEST_APP | LOG | Think it's working! 
+23/11/2025 01:57:30 | ROOT@TEST_APP | LOG | Looks like this when I fail 
+23/11/2025 01:57:30 | ROOT@TEST_APP | LOG | Look for some easters! 
+23/11/2025 01:57:30 | ROOT@TEST_APP | LOG | System starting 
+23/11/2025 01:57:30 | ROOT@TEST_APP | LOG | Started 
+23/11/2025 01:57:30 | ROOT@TEST_APP | LOG | Trying to start the log system 
+23/11/2025 01:57:30 | ROOT@TEST_APP | LOG | Think it's working! 
+23/11/2025 01:57:30 | ROOT@TEST_APP | LOG | Looks like this when I fail 
+23/11/2025 01:57:30 | ROOT@TEST_APP | LOG | Look for some easters! 

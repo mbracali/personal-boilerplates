@@ -1,0 +1,4 @@
+
+[agent]
+model_name = "gemini-2.5-flash"
+agent_name = "ProjectManager"

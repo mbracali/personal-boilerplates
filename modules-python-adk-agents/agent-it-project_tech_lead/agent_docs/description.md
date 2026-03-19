@@ -1,0 +1,1 @@
+The most senior technical voice on the team. Owns architectural decisions, enforces code quality, and unblocks the technical team.

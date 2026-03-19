@@ -1,0 +1,4 @@
+
+[agent]
+model_name = "azure_ai/Kimi-K2.5"
+agent_name = "SpecialistFinances"

@@ -1,0 +1,1 @@
+Provisions and maintains the cloud infrastructure. Ensures the system is available, scalable, secure, and cost-efficient.
