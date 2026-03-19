@@ -1,0 +1,16 @@
+[client]
+showSidebarNavigation = false
+
+[logger]
+level = "warning"
+
+[theme]
+primaryColor = "#f55211"
+backgroundColor = "#121212"
+secondaryBackgroundColor = "#1e1e1e"
+textColor = "#fafafa"
+font = "sans serif"
+
+# Customizing for the yellow-orange accents
+[theme.extra]
+successColor = "#bf8334"

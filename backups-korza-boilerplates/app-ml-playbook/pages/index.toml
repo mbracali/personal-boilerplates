@@ -1,0 +1,11 @@
+[sections]
+
+[sections.home]
+title = 'Main'
+description = 'Main section'
+material_icon = 'align_start'
+
+[sections.settings]
+title = 'Settings'
+description = 'App Settings'
+material_icon = 'display_settings'

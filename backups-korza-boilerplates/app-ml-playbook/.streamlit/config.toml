@@ -1,0 +1,12 @@
+[client]
+showSidebarNavigation = false
+
+[logger]
+level = "warning"
+
+# Available config.toml properties:
+# [server] headless, port, enableCORS, enableXsrfProtection, address, baseUrlPath, runOnSave, fileWatcherType, maxUploadSize, maxMessageSize, enableWebsocketCompression, cookieSecret, enableStaticServing
+# [browser] serverAddress, serverPort, gatherUsageStats
+# [theme] base, primaryColor, backgroundColor, secondaryBackgroundColor, textColor, font
+# [client] showSidebarNavigation
+# [logger] level, messageFormat, levelFormat, dateFormat

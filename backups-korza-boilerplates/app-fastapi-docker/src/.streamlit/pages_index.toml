@@ -1,0 +1,29 @@
+# Sections of the app
+[section.main]
+title = "Main"
+description = "Main section"
+material_icon = ":material/align_start:"
+color = "orange"
+expanded = true
+
+[section.settings]
+title = "Settings"
+description = "App Settings"
+material_icon = ":material/display_settings:"
+color = "gray"
+expanded = false
+
+# App pages
+[page.home]
+section = "main"
+title = "Home"
+description = "Home page of the boilerplate app"
+material_icon = ":material/home:"
+file = "00_home.py"
+
+[page.settings]
+section = "settings"
+title = "Settings"
+description = "App Settings page"
+material_icon = ":material/settings:"
+file = "00_settings.py"

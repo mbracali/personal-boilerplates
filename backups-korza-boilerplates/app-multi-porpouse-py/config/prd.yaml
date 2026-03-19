@@ -1,0 +1,22 @@
+
+logging_level: "INFO"
+logging_format: "[%(asctime)s] [%(levelname)s] %(message)s"
+logging_datefmt: "%Y-%m-%d %H:%M:%S"
+
+server_host: "0.0.0.0"
+server_port: 8000
+
+# If you want to add more things, follow the structure
+
+# DATABASE EXAMPLE:
+# databse_name: "dbname"
+# database_port: 9999
+# database_user: "user"
+# database_pass: "password"
+
+# API EXAMPLE:
+# api_base_url: "https://api.example.com"
+# api_timeout_seconds: 30
+# api_retries: 3
+# api_auth_user: "user"
+# api_auth_pass: "password"

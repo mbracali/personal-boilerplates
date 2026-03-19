@@ -1,0 +1,11 @@
+name: "korza-api-boilerplate"     # Name of the app for registry in docker tools
+
+services:                         # Starts the service definitions block
+  app:                            # Name of your service (you can change this to anything)
+    build: .                      # Look for the Dockerfile in the current directory to build the image
+    ports:                        # Network mapping: "HOST_PORT : CONTAINER_PORT"
+      - "8000:8000"               # Maps host 8000 to container 8000 (API)
+      - "8080:8080"               # Maps host 8080 to container 8080 (Proxy/Second API)
+      - "8501:8501"               # Maps host 8501 to container 8501 (Frontend endpoint)
+    volumes:                      # Connects your host files to the container
+      - .:/app:Z                  # Mounts current folder to /app. The ':Z' is vital for Podman/SELinux permissions

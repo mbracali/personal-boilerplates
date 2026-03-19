@@ -1,0 +1,81 @@
+# {!PROJECT_NAME} progress report
+
+>  <sub> {!DELETE_THIS} Template for the project progress, focused on report the project journey.</sub>
+>  <sub> {!DELETE_THIS} Use this to state clear messages of sucess and concerns during the project.</sub>
+>  <sub> {!DELETE_THIS} Remember to link documents for deep dives and more details.</sub>
+>  <sub> {!DELETE_THIS} If you dont delete this tags, this document will not be accessible by the KorzaBot.</sub>
+
+For more detailed informations, querys, notebooks and other artifacts see the `deep-dive` folder.
+
+---
+## 👥 Stakeholders
+
+| Company  | Person   | Role           |
+| -------- | -------- | -------------- |
+| Customer | Person 1 | The role is... |
+| Customer | Person 2 | The role is... |
+| Korza    | Person 3 | The role is... |
+| Korza    | Person 4 | The role is... |
+| Korza    | Person 5 | The role is... |
+| ...      | ...      | ...            |
+
+---
+## 🔬 Hypothesis Backlog
+
+
+| Hypothesis | Prediction | Metric |
+| ---------- | ---------- | ------ |
+| ...        | ...        | ...    |
+| ...        | ...        | ...    |
+| ...        | ...        | ...    |
+| ...        | ...        | ...    |
+
+---
+## ✅️ Possible to achieve
+
+| Goal   | Description | Achieving by | Relevant numbers | Done | Evidence | OBS  |
+| ------ | ----------- | ------------ | ---------------- | ---- | -------- | ---- |
+| Goal 1 | ....        | ....         | ....             | .... | ....     | .... |
+| Goal 2 | ....        | ....         | ....             | .... | ....     | .... |
+| ....   | ....        | ....         | ....             | .... | ....     | .... |
+
+### 📊 Support data/facts
+* Using the SQL, I've found...
+* More than 1000 records for...
+
+---
+## ⚠️ What we need more clarification
+
+| Question     | What can be a blocker | Best answer possible | Evidence | OBS  |
+| ------------ | --------------------- | -------------------- | -------- | ---- |
+| About goal 3 | ....                  | ....                 | ....     | .... |
+| New Database | ....                  | ....                 | ....     | .... |
+
+### 📊 Support data/facts
+* Not sure if the unique ID is X or Y
+* In the middle of the project we found a new database where....
+
+---
+## ⛔️ What is not possible to achieve
+
+| Goal   | Description | Achieving by | Relevant numbers | Done | Evidence | OBS  |
+| ------ | ----------- | ------------ | ---------------- | ---- | -------- | ---- |
+| Goal 4 | ....        | ....         | ....             | .... | ....     | .... |
+| ....   | ....        | ....         | ....             | .... | ....     | .... |
+
+### 📊 Support data/facts
+* Its not possible to create performance reports, because data lack....
+
+
+
+---
+# 📝 General notes
+
+* ...
+* ...
+* ...
+
+---
+<sub><sup>Last updated on {!DOC_DATE}</sup></sub>
+<sub><sup>template version: 0.1.0 </sup></sub>
+

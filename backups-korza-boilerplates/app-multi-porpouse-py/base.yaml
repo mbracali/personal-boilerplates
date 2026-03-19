@@ -1,0 +1,14 @@
+# Base app configuration
+app_name: "default"
+app_version: "0.0.1"
+app_debug: false
+app_cache: true
+
+# Project Paths
+logs_path: "/.logs"
+app_path: "/app"
+assets_path: "/assets"
+config_path: "/config"
+data_path: "/data"
+notebooks_path: "/notebooks"
+scripts_path: "/scripts"
