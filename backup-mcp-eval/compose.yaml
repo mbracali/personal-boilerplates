@@ -1,0 +1,11 @@
+name: "korza-mcp-llm-eval"
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: korza-mcp-llm-eval/Dockerfile
+    ports:
+      - "8081:8081" # MCP SSE
+    volumes:
+      - ./src:/app/src:Z
