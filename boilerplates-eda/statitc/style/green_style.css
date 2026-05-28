@@ -1,0 +1,924 @@
+/* ==========================================================================
+   Korza Green — Colors & Type tokens
+   Brand system derived from the Korza LookNFell deck and the motus
+   taxonomy & glossary HTML (v7_2). Light, teal-forward, document-feeling.
+   Apply by setting data-korza-mode="light" (default) or "dark" on
+   <html> or any element.
+   ========================================================================== */
+
+/* ---------- Fonts ---------- */
+/* Aptos / Aptos Display ship with modern Office and Windows; on systems
+   that lack them the safe stacks fall back to Segoe UI / Helvetica Neue /
+   system-ui. No webfont @import — the deliverables are designed to open
+   by double-click with no network. */
+
+/* ==========================================================================
+   1. RAW PALETTE — Korza brand swatches
+   Names mirror what the HTML deliverables already use, so cross-referencing
+   between this stylesheet and the inline CSS is one-to-one.
+   ========================================================================== */
+
+/* Light (default) — the canonical document palette */
+:root,
+[data-korza-mode="light"] {
+  /* Greens — the spine of the brand */
+  --korza-teal: #305657;
+  /* primary brand */
+  --korza-teal-deep: #1E3A3B;
+  /* darker bar / chrome */
+  --korza-teal-soft: #4C7677;
+  /* hover / secondary accent */
+  --korza-teal-glass: rgba(48, 86, 87, 0.08);
+  --korza-teal-glass-2: rgba(48, 86, 87, 0.18);
+  --korza-teal-glass-3: rgba(48, 86, 87, 0.32);
+
+  /* Neutral surfaces */
+  --korza-cream: #F2EDE5;
+  /* secondary surface */
+  --korza-cream-deep: #E8E1D5;
+  /* hover on cream */
+  --korza-white: #FFFFFF;
+  /* base surface */
+  --korza-border: #E6E1D8;
+  /* hairlines */
+
+  /* Ink scale */
+  --korza-ink: #111111;
+  /* big numerals / display */
+  --korza-text: #222222;
+  /* body */
+  --korza-muted: #555555;
+  /* secondary */
+  --korza-mute-2: #666666;
+  /* tertiary */
+  --korza-mute-3: #999999;
+  /* placeholders, faint */
+
+  /* Accents */
+  --korza-negative: #A02B93;
+  /* magenta — negative deltas only */
+
+  /* Data viz */
+  --viz-blue: #2B5F87;
+  /* baseline series */
+  --viz-blue-fade: rgba(43, 95, 135, 0.22);
+  --viz-overlay: var(--korza-teal);
+}
+
+/* Dark — same hue family, surfaces inverted. Useful for previews,
+   not for customer-facing HTML. */
+[data-korza-mode="dark"] {
+  --korza-teal: #6FA9AA;
+  --korza-teal-deep: #4C7677;
+  --korza-teal-soft: #305657;
+  --korza-teal-glass: rgba(111, 169, 170, 0.10);
+  --korza-teal-glass-2: rgba(111, 169, 170, 0.22);
+  --korza-teal-glass-3: rgba(111, 169, 170, 0.36);
+
+  --korza-cream: #1F2422;
+  --korza-cream-deep: #161A19;
+  --korza-white: #0F1413;
+  --korza-border: #283130;
+
+  --korza-ink: #F4F1EB;
+  --korza-text: #E6E1D8;
+  --korza-muted: #B7B1A6;
+  --korza-mute-2: #948E83;
+  --korza-mute-3: #6E6960;
+
+  --korza-negative: #D26AC1;
+
+  --viz-blue: #6FA0C7;
+  --viz-blue-fade: rgba(111, 160, 199, 0.28);
+  --viz-overlay: var(--korza-teal);
+}
+
+/* ==========================================================================
+   2. SEMANTIC ALIASES — stable across modes
+   ========================================================================== */
+:root {
+  /* Surfaces (low → elevated) */
+  --bg: var(--korza-white);
+  /* page */
+  --bg-alt: var(--korza-cream);
+  /* secondary surface, side rails */
+  --bg-deep: var(--korza-cream-deep);
+  /* hover on bg-alt */
+  --surface: var(--korza-white);
+  /* cards */
+  --surface-hi: var(--korza-cream);
+  /* hover / raised */
+  --surface-hi-2: var(--korza-cream-deep);
+  /* pressed / highest */
+  --chrome: var(--korza-teal-deep);
+  /* app header / dark bars */
+
+  /* Text layers */
+  --fg: var(--korza-text);
+  /* body */
+  --fg-display: var(--korza-ink);
+  /* headings, big numerals */
+  --fg-muted: var(--korza-muted);
+  /* secondary */
+  --fg-faint: var(--korza-mute-2);
+  /* tertiary, captions */
+  --fg-overlay: var(--korza-mute-3);
+  /* placeholders, disabled */
+  --fg-on-dark: var(--korza-white);
+  /* text over teal-deep */
+
+  /* Borders / dividers */
+  --border: var(--korza-border);
+  --border-soft: rgba(48, 86, 87, 0.08);
+  /* used inside cream rails */
+  --border-hard: var(--korza-teal);
+
+  /* Brand / semantic roles */
+  --accent: var(--korza-teal);
+  /* dominant 60–70% of UI */
+  --accent-alt: var(--korza-teal-soft);
+  /* secondary accent */
+  --primary: var(--korza-teal);
+  /* links, primary CTA */
+  --secondary: var(--korza-teal-soft);
+  --success: var(--korza-teal);
+  /* the brand IS the success colour */
+  --warning: #B07A1F;
+  /* warm ochre, used sparingly */
+  --danger: var(--korza-negative);
+  /* negative deltas only */
+  --info: var(--viz-blue);
+  --highlight: var(--korza-cream-deep);
+
+  /* Soft tints — for backgrounds of pills, callouts, hover states */
+  --tint-primary: var(--korza-teal-glass);
+  --tint-accent: var(--korza-teal-glass-2);
+  --tint-press: var(--korza-teal-glass-3);
+  --tint-cream: var(--korza-cream);
+
+  /* Focus ring — teal at low alpha, never the default browser blue */
+  --focus-ring: 0 0 0 2px var(--korza-teal);
+  --focus-ring-soft: 0 0 0 3px color-mix(in srgb, var(--korza-teal) 40%, transparent);
+}
+
+/* ==========================================================================
+   3. TYPOGRAPHY — Aptos Display (headings) + Aptos (body) + Georgia (decor)
+   These are the three families used in the HTML deliverables. No webfont
+   imports; the safe stacks degrade to Segoe UI / system-ui on systems that
+   lack Aptos.
+   ========================================================================== */
+:root {
+  --font-display: "Aptos Display", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Aptos", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-body);
+  /* convenience alias */
+
+  /* Type scale — calibrated against the v7_2 HTML.
+     Section title 44px, detail title 32px, KPI value 26px, big numeral 44px,
+     body 16px, caption 12.5px, eyebrow 10.5–12px. */
+  --fs-eyebrow-sm: 10.5px;
+  --fs-eyebrow: 11px;
+  --fs-eyebrow-lg: 12px;
+  --fs-xs: 11px;
+  --fs-sm: 12.5px;
+  /* captions */
+  --fs-md: 13.5px;
+  /* dense UI */
+  --fs-base: 15px;
+  /* body alt */
+  --fs-lg: 16px;
+  /* default body */
+  --fs-xl: 18px;
+  /* card titles */
+  --fs-2xl: 22px;
+  /* placeholder/card big titles */
+  --fs-3xl: 26px;
+  /* L1 KPI value */
+  --fs-4xl: 32px;
+  /* detail title */
+  --fs-5xl: 44px;
+  /* section title / score-card numeral */
+  --fs-6xl: 64px;
+  /* hero numerals on dividers */
+
+  /* Line heights */
+  --lh-tight: 1.1;
+  /* display */
+  --lh-snug: 1.25;
+  /* card titles, table rows */
+  --lh-body: 1.5;
+  /* body */
+  --lh-loose: 1.75;
+  /* long-form prose */
+
+  /* Weights — Aptos has 400/500/600/700 */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* Letter spacing — Korza eyebrows are wide-tracked uppercase */
+  --tracking-tight: -0.01em;
+  /* big display */
+  --tracking-snug: -0.005em;
+  /* section titles */
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-ucase: 0.08em;
+  --tracking-eyebrow: 0.14em;
+  /* the canonical Korza eyebrow tracking */
+  --tracking-version: 0.18em;
+  /* version tags in the header */
+}
+
+/* ==========================================================================
+   4. SPACING, RADIUS, SHADOWS, MOTION
+   Numbers come from the v7_2 inline CSS; radii are deliberately small
+   (2 / 4 / 6 px). Shadows are subtle — Korza uses whitespace and hairlines
+   instead of drama.
+   ========================================================================== */
+:root {
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 56px;
+  --space-10: 72px;
+  --space-11: 96px;
+
+  /* Layout — these match the app shell in the HTML */
+  --header-height: 56px;
+  --sidebar-width: 288px;
+  --sidebar-collapsed: 64px;
+  --content-max: 1160px;
+  --content-max-wide: 1320px;
+
+  /* Radii */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-pill: 999px;
+
+  /* Shadows — gentle, top-down, never coloured.
+     Use the chrome shadow on the fixed app header. */
+  --shadow-xs: 0 1px 0 rgba(17, 17, 17, 0.04);
+  --shadow-sm: 0 1px 2 rgba(17, 17, 17, 0.06);
+  --shadow-md: 0 2px 10 rgba(17, 17, 17, 0.10);
+  --shadow-lg: 0 4px 14 rgba(17, 17, 17, 0.14);
+  --shadow-card-hover: 0 6px 18px rgba(17, 17, 17, 0.10);
+  --shadow-chrome: 0 1px 0 rgba(255, 255, 255, 0.04), 0 2px 10px rgba(0, 0, 0, 0.18);
+  --shadow-tooltip: 0 4px 14px rgba(0, 0, 0, 0.18);
+  --shadow-mobile-sidebar: 4px 0 24px rgba(17, 17, 17, 0.12);
+
+  /* Motion — Korza has one easing curve and three durations */
+  --easing: cubic-bezier(.2, .7, .2, 1);
+  --easing-out: cubic-bezier(.22, 1, .36, 1);
+  --dur-fast: 120ms;
+  --dur-base: 180ms;
+  --dur-slow: 280ms;
+}
+
+/* ==========================================================================
+   5. BASE ELEMENT STYLES
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+[data-korza-mode="dark"] {
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  color: var(--fg-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-snug);
+  margin: 0 0 var(--space-4);
+}
+
+h1 {
+  font-size: var(--fs-5xl);
+  letter-spacing: var(--tracking-snug);
+}
+
+h2 {
+  font-size: var(--fs-4xl);
+}
+
+h3 {
+  font-size: var(--fs-3xl);
+}
+
+h4 {
+  font-size: var(--fs-2xl);
+}
+
+h5 {
+  font-size: var(--fs-xl);
+}
+
+h6 {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+}
+
+p {
+  margin: 0 0 var(--space-4);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--easing),
+    text-decoration-color var(--dur-fast) var(--easing);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+small,
+.caption {
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+}
+
+strong,
+b {
+  font-weight: var(--fw-bold);
+  color: var(--fg-display);
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: var(--space-7) 0;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.92em;
+}
+
+code {
+  background: var(--bg-alt);
+  color: var(--fg-display);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+}
+
+pre {
+  background: var(--bg-alt);
+  color: var(--fg);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  line-height: var(--lh-snug);
+}
+
+::selection {
+  background: var(--korza-teal-glass-2);
+  color: var(--fg-display);
+}
+
+/* Scrollbars — thin, teal-tinted, low-contrast */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--korza-teal-glass-2) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--korza-teal-glass-2);
+  border-radius: var(--radius-pill);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--korza-teal-glass-3);
+}
+
+/* ==========================================================================
+   6. KORZA SIGNATURE MOTIFS
+   The shapes that show up over and over in the deck and the HTML. Anything
+   declared here is opt-in — apply by class.
+   ========================================================================== */
+
+/* Eyebrow — short teal rule + ALL CAPS teal label.
+   This is THE recurring Korza header motif. */
+.korza-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+}
+
+.korza-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* Card — white body, hairline, optional teal top bar (.korza-card--bar) */
+.korza-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6) var(--space-7);
+  transition: border-color var(--dur-base) var(--easing),
+    transform var(--dur-base) var(--easing),
+    box-shadow var(--dur-base) var(--easing);
+}
+
+.korza-card--bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent);
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+}
+
+.korza-card--cream {
+  background: var(--bg-alt);
+  border-color: var(--border);
+}
+
+.korza-card:hover {
+  border-color: var(--accent);
+}
+
+/* Section divider — full-bleed teal band with a large white numeral.
+   Drop a number in via ::before content or a child element. */
+.korza-divider {
+  background: var(--accent);
+  color: var(--fg-on-dark);
+  padding: var(--space-9) var(--space-7);
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-6);
+}
+
+.korza-divider__num {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-6xl);
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+}
+
+.korza-divider__title {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-4xl);
+  letter-spacing: var(--tracking-snug);
+}
+
+/* KPI tile — white surface, big black value, small teal delta */
+.korza-kpi {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  position: relative;
+}
+
+.korza-kpi::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+}
+
+.korza-kpi__label {
+  color: var(--accent);
+  font-size: var(--fs-eyebrow-sm);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+}
+
+.korza-kpi__value {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-3xl);
+  color: var(--fg-display);
+  line-height: 1;
+}
+
+.korza-kpi__sub {
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+  line-height: 1.35;
+}
+
+.korza-delta--up {
+  color: var(--accent);
+}
+
+.korza-delta--down {
+  color: var(--danger);
+}
+
+/* Quote block — teal background, giant white Georgia open-quote,
+   thin white rule, small attribution */
+.korza-quote {
+  background: var(--accent);
+  color: var(--fg-on-dark);
+  padding: var(--space-7) var(--space-7) var(--space-6) var(--space-7);
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.korza-quote::before {
+  content: "\201C";
+  /* fancy left double quote */
+  font-family: var(--font-serif);
+  font-size: 88px;
+  line-height: 1;
+  position: absolute;
+  top: 8px;
+  left: var(--space-6);
+  opacity: 0.85;
+}
+
+.korza-quote__text {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-2xl);
+  line-height: 1.3;
+  margin: var(--space-7) 0 var(--space-5) 0;
+  letter-spacing: var(--tracking-snug);
+}
+
+.korza-quote__rule {
+  height: 1px;
+  width: 48px;
+  background: var(--fg-on-dark);
+  opacity: 0.5;
+  margin-bottom: var(--space-3);
+}
+
+.korza-quote__attrib {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  letter-spacing: var(--tracking-ucase);
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* Before / after columns — cream + teal pair */
+.korza-before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+.korza-before-after__before {
+  background: var(--bg-alt);
+  color: var(--fg);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+}
+
+.korza-before-after__after {
+  background: var(--accent);
+  color: var(--fg-on-dark);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+}
+
+/* Timeline strip — horizontal teal rule with dots */
+.korza-timeline {
+  position: relative;
+  padding: var(--space-5) 0 var(--space-2) 0;
+}
+
+.korza-timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--accent);
+}
+
+.korza-timeline__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  position: relative;
+}
+
+/* Pill / tag */
+.korza-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--tint-primary);
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-ucase);
+  text-transform: uppercase;
+}
+
+.korza-pill--solid {
+  background: var(--accent);
+  color: var(--fg-on-dark);
+}
+
+.korza-pill--ghost {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+/* Buttons */
+.korza-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--surface);
+  color: var(--fg-display);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-normal);
+  cursor: pointer;
+  transition: background var(--dur-base) var(--easing),
+    color var(--dur-base) var(--easing),
+    border-color var(--dur-base) var(--easing),
+    transform var(--dur-base) var(--easing);
+}
+
+.korza-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.korza-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.korza-btn--solid {
+  background: var(--accent);
+  color: var(--fg-on-dark);
+  border-color: var(--accent);
+}
+
+.korza-btn--solid:hover {
+  background: var(--korza-teal-deep);
+  color: var(--fg-on-dark);
+  border-color: var(--korza-teal-deep);
+}
+
+.korza-btn--ghost {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  font-size: var(--fs-eyebrow-sm);
+  font-weight: var(--fw-bold);
+  padding: 8px 14px;
+}
+
+.korza-btn--ghost:hover {
+  background: var(--accent);
+  color: var(--fg-on-dark);
+}
+
+/* App header — fixed teal-deep band with white text, used in the HTML shell */
+.korza-app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: var(--chrome);
+  color: var(--fg-on-dark);
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: 0 var(--space-5);
+  z-index: 100;
+  box-shadow: var(--shadow-chrome);
+}
+
+.korza-app-header__title {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 17px;
+  letter-spacing: 0.01em;
+}
+
+.korza-app-header__version {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  color: var(--korza-cream);
+  letter-spacing: var(--tracking-version);
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border: 1px solid rgba(242, 237, 229, 0.35);
+  border-radius: var(--radius-md);
+}
+
+/* Sidebar — cream rail with teal active markers */
+.korza-sidebar {
+  background: var(--bg-alt);
+  border-right: 1px solid var(--border);
+  width: var(--sidebar-width);
+}
+
+.korza-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: background var(--dur-base) var(--easing),
+    color var(--dur-base) var(--easing);
+}
+
+.korza-sidebar__item:hover {
+  background: var(--bg-deep);
+  color: var(--accent);
+}
+
+.korza-sidebar__item.is-active {
+  background: var(--surface);
+  color: var(--accent);
+  font-weight: var(--fw-bold);
+  position: relative;
+}
+
+.korza-sidebar__item.is-active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Tooltip — teal-deep with white text, used on charts */
+.korza-tooltip {
+  background: var(--chrome);
+  color: var(--fg-on-dark);
+  font-family: var(--font-body);
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-tooltip);
+}
+
+/* ==========================================================================
+   7. ACCESSIBILITY HELPERS
+   ========================================================================== */
+.korza-sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   8. PRINT
+   Korza HTML deliverables are sometimes printed to PDF. Strip chrome,
+   keep ink readable.
+   ========================================================================== */
+@media print {
+  :root {
+    --bg: #FFFFFF;
+    --bg-alt: #FFFFFF;
+    --chrome: #305657;
+  }
+
+  .korza-app-header,
+  .korza-sidebar {
+    display: none !important;
+  }
+
+  .korza-card,
+  .korza-kpi {
+    box-shadow: none;
+  }
+
+  a {
+    color: var(--korza-ink);
+    text-decoration: underline;
+  }
+}

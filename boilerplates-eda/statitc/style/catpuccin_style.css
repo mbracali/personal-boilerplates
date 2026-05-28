@@ -1,0 +1,916 @@
+/* ==========================================================================
+   Korza × Catppuccin — Colors & Type tokens
+   The Korza element system (eyebrow, card, divider, kpi, quote, before/after,
+   timeline, pill, btn, app-header, sidebar, tooltip) recoloured with the
+   Catppuccin palette and typeset in Montserrat / Maven Pro / Fira Code.
+
+   Class names are identical to korza_green_style.css so the two files are
+   drop-in interchangeable on the same markup.
+
+   Flavors: Mocha (default, darkest), Macchiato, Frappé, Latte (light).
+   Apply via data-ctp-flavor on <html> or any element.
+   ========================================================================== */
+
+/* ---------- Fonts ---------- */
+/* Display + body — Google Fonts (matches Catppuccin's own site). */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Maven+Pro:wght@400;500;600;700&display=swap');
+
+/* Mono — Fira Code, bundled locally in fonts/ */
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/FiraCode-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/FiraCode-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/FiraCode-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/FiraCode-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/FiraCode-Bold.ttf') format('truetype');
+}
+
+/* ==========================================================================
+   1. RAW PALETTE — Catppuccin, four flavors
+   Mocha is the default; switch with data-ctp-flavor="latte|frappe|macchiato".
+   ========================================================================== */
+
+/* Mocha (darkest) — default */
+:root,
+[data-ctp-flavor="mocha"] {
+  --ctp-rosewater: #f5e0dc;
+  --ctp-flamingo:  #f2cdcd;
+  --ctp-pink:      #f5c2e7;
+  --ctp-mauve:     #cba6f7;
+  --ctp-red:       #f38ba8;
+  --ctp-maroon:    #eba0ac;
+  --ctp-peach:     #fab387;
+  --ctp-yellow:    #f9e2af;
+  --ctp-green:     #a6e3a1;
+  --ctp-teal:      #94e2d5;
+  --ctp-sky:       #89dceb;
+  --ctp-sapphire:  #74c7ec;
+  --ctp-blue:      #89b4fa;
+  --ctp-lavender:  #b4befe;
+
+  --ctp-text:      #cdd6f4;
+  --ctp-subtext-1: #bac2de;
+  --ctp-subtext-0: #a6adc8;
+  --ctp-overlay-2: #9399b2;
+  --ctp-overlay-1: #7f849c;
+  --ctp-overlay-0: #6c7086;
+  --ctp-surface-2: #585b70;
+  --ctp-surface-1: #45475a;
+  --ctp-surface-0: #313244;
+  --ctp-base:      #1e1e2e;
+  --ctp-mantle:    #181825;
+  --ctp-crust:     #11111b;
+}
+
+[data-ctp-flavor="macchiato"] {
+  --ctp-rosewater: #f4dbd6;
+  --ctp-flamingo:  #f0c6c6;
+  --ctp-pink:      #f5bde6;
+  --ctp-mauve:     #c6a0f6;
+  --ctp-red:       #ed8796;
+  --ctp-maroon:    #ee99a0;
+  --ctp-peach:     #f5a97f;
+  --ctp-yellow:    #eed49f;
+  --ctp-green:     #a6da95;
+  --ctp-teal:      #8bd5ca;
+  --ctp-sky:       #91d7e3;
+  --ctp-sapphire:  #7dc4e4;
+  --ctp-blue:      #8aadf4;
+  --ctp-lavender:  #b7bdf8;
+
+  --ctp-text:      #cad3f5;
+  --ctp-subtext-1: #b8c0e0;
+  --ctp-subtext-0: #a5adcb;
+  --ctp-overlay-2: #939ab7;
+  --ctp-overlay-1: #8087a2;
+  --ctp-overlay-0: #6e738d;
+  --ctp-surface-2: #5b6078;
+  --ctp-surface-1: #494d64;
+  --ctp-surface-0: #363a4f;
+  --ctp-base:      #24273a;
+  --ctp-mantle:    #1e2030;
+  --ctp-crust:     #181926;
+}
+
+[data-ctp-flavor="frappe"] {
+  --ctp-rosewater: #f2d5cf;
+  --ctp-flamingo:  #eebebe;
+  --ctp-pink:      #f4b8e4;
+  --ctp-mauve:     #ca9ee6;
+  --ctp-red:       #e78284;
+  --ctp-maroon:    #ea999c;
+  --ctp-peach:     #ef9f76;
+  --ctp-yellow:    #e5c890;
+  --ctp-green:     #a6d189;
+  --ctp-teal:      #81c8be;
+  --ctp-sky:       #99d1db;
+  --ctp-sapphire:  #85c1dc;
+  --ctp-blue:      #8caaee;
+  --ctp-lavender:  #babbf1;
+
+  --ctp-text:      #c6d0f5;
+  --ctp-subtext-1: #b5bfe2;
+  --ctp-subtext-0: #a5adce;
+  --ctp-overlay-2: #949cbb;
+  --ctp-overlay-1: #838ba7;
+  --ctp-overlay-0: #737994;
+  --ctp-surface-2: #626880;
+  --ctp-surface-1: #51576d;
+  --ctp-surface-0: #414559;
+  --ctp-base:      #303446;
+  --ctp-mantle:    #292c3c;
+  --ctp-crust:     #232634;
+}
+
+[data-ctp-flavor="latte"] {
+  --ctp-rosewater: #dc8a78;
+  --ctp-flamingo:  #dd7878;
+  --ctp-pink:      #ea76cb;
+  --ctp-mauve:     #8839ef;
+  --ctp-red:       #d20f39;
+  --ctp-maroon:    #e64553;
+  --ctp-peach:     #fe640b;
+  --ctp-yellow:    #df8e1d;
+  --ctp-green:     #40a02b;
+  --ctp-teal:      #179299;
+  --ctp-sky:       #04a5e5;
+  --ctp-sapphire:  #209fb5;
+  --ctp-blue:      #1e66f5;
+  --ctp-lavender:  #7287fd;
+
+  --ctp-text:      #4c4f69;
+  --ctp-subtext-1: #5c5f77;
+  --ctp-subtext-0: #6c6f85;
+  --ctp-overlay-2: #7c7f93;
+  --ctp-overlay-1: #8c8fa1;
+  --ctp-overlay-0: #9ca0b0;
+  --ctp-surface-2: #acb0be;
+  --ctp-surface-1: #bcc0cc;
+  --ctp-surface-0: #ccd0da;
+  --ctp-base:      #eff1f5;
+  --ctp-mantle:    #e6e9ef;
+  --ctp-crust:     #dce0e8;
+}
+
+/* ==========================================================================
+   2. KORZA → CATPPUCCIN ALIASES
+   The Korza element system reads from these names. We keep --korza-* names
+   for drop-in compatibility with korza_green_style.css, but the values
+   resolve to Catppuccin tokens (mauve as the brand accent, pink as the
+   secondary, mauve at low alpha for tints).
+   ========================================================================== */
+:root {
+  /* Brand "greens" → mauve / pink in Catppuccin land */
+  --korza-teal:        var(--ctp-mauve);          /* primary brand */
+  --korza-teal-deep:   var(--ctp-mantle);         /* dark chrome (header bars) */
+  --korza-teal-soft:   var(--ctp-pink);           /* secondary accent */
+  --korza-teal-glass:  color-mix(in srgb, var(--ctp-mauve) 10%, transparent);
+  --korza-teal-glass-2:color-mix(in srgb, var(--ctp-mauve) 22%, transparent);
+  --korza-teal-glass-3:color-mix(in srgb, var(--ctp-mauve) 36%, transparent);
+
+  /* Neutral surfaces */
+  --korza-cream:       var(--ctp-surface-0);      /* secondary surface */
+  --korza-cream-deep:  var(--ctp-surface-1);      /* hover on cream */
+  --korza-white:       var(--ctp-base);           /* base surface */
+  --korza-border:      var(--ctp-overlay-0);      /* hairlines */
+
+  /* Ink scale */
+  --korza-ink:         var(--ctp-text);           /* big numerals / display */
+  --korza-text:        var(--ctp-text);           /* body */
+  --korza-muted:       var(--ctp-subtext-1);      /* secondary */
+  --korza-mute-2:      var(--ctp-subtext-0);      /* tertiary */
+  --korza-mute-3:      var(--ctp-overlay-1);      /* placeholders, faint */
+
+  /* Accents */
+  --korza-negative:    var(--ctp-red);            /* negative deltas only */
+
+  /* Data viz */
+  --viz-blue:          var(--ctp-blue);
+  --viz-blue-fade:     color-mix(in srgb, var(--ctp-blue) 24%, transparent);
+  --viz-overlay:       var(--ctp-mauve);
+}
+
+/* Latte gets a contrast tweak — lighten the chrome and the dark "deep" so
+   they read as "elevated" rather than "darker" against a light base. */
+[data-ctp-flavor="latte"] {
+  --korza-teal-deep: var(--ctp-crust);
+}
+
+/* ==========================================================================
+   3. SEMANTIC ALIASES — stable across flavors
+   Identical names to korza_green_style.css; values point through the Korza
+   aliases above so a flavor switch cascades everywhere.
+   ========================================================================== */
+:root {
+  /* Surfaces (low → elevated) */
+  --bg:           var(--korza-white);     /* page */
+  --bg-alt:       var(--korza-cream);     /* secondary surface, side rails */
+  --bg-deep:      var(--korza-cream-deep);/* hover on bg-alt */
+  --surface:      var(--korza-white);     /* cards */
+  --surface-hi:   var(--korza-cream);     /* hover / raised */
+  --surface-hi-2: var(--korza-cream-deep);/* pressed / highest */
+  --chrome:       var(--korza-teal-deep); /* app header / dark bars */
+
+  /* Text layers */
+  --fg:           var(--korza-text);
+  --fg-display:   var(--korza-ink);
+  --fg-muted:     var(--korza-muted);
+  --fg-faint:     var(--korza-mute-2);
+  --fg-overlay:   var(--korza-mute-3);
+  --fg-on-dark:   var(--ctp-text);        /* text over chrome / accent */
+
+  /* Borders / dividers */
+  --border:       var(--korza-border);
+  --border-soft:  color-mix(in srgb, var(--korza-teal) 10%, transparent);
+  --border-hard:  var(--korza-teal);
+
+  /* Brand / semantic roles */
+  --accent:       var(--korza-teal);      /* mauve */
+  --accent-alt:   var(--korza-teal-soft); /* pink */
+  --primary:      var(--ctp-blue);        /* links — Catppuccin convention */
+  --secondary:    var(--ctp-lavender);
+  --success:      var(--ctp-green);
+  --warning:      var(--ctp-yellow);
+  --danger:       var(--ctp-red);
+  --info:         var(--ctp-sky);
+  --highlight:    var(--ctp-peach);
+
+  /* Soft tints */
+  --tint-primary: var(--korza-teal-glass);
+  --tint-accent:  var(--korza-teal-glass-2);
+  --tint-press:   var(--korza-teal-glass-3);
+  --tint-cream:   var(--korza-cream);
+
+  /* Focus ring */
+  --focus-ring:      0 0 0 2px var(--accent);
+  --focus-ring-soft: 0 0 0 3px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+/* ==========================================================================
+   4. TYPOGRAPHY — Montserrat (display) + Maven Pro (body) + Fira Code (mono)
+   Catppuccin's own site uses Montserrat + Maven Pro + JetBrains Mono;
+   we substitute Fira Code locally and keep JetBrains Mono in the stack.
+   ========================================================================== */
+:root {
+  --font-display: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-body:    'Maven Pro', 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-sans:    var(--font-body);
+  --font-mono:    'Fira Code', 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --font-serif:   Georgia, "Times New Roman", serif; /* kept for the quote glyph */
+
+  /* Type scale — the Korza scale, rebased to rem so it scales with user prefs.
+     1rem = 16px; matches the v7_2 sizes. */
+  --fs-eyebrow-sm: 0.656rem;  /* 10.5 */
+  --fs-eyebrow:    0.6875rem; /* 11   */
+  --fs-eyebrow-lg: 0.75rem;   /* 12   */
+  --fs-xs:         0.6875rem; /* 11   */
+  --fs-sm:         0.781rem;  /* 12.5 */
+  --fs-md:         0.844rem;  /* 13.5 */
+  --fs-base:       0.9375rem; /* 15   */
+  --fs-lg:         1rem;      /* 16   */
+  --fs-xl:         1.125rem;  /* 18   */
+  --fs-2xl:        1.375rem;  /* 22   */
+  --fs-3xl:        1.625rem;  /* 26   */
+  --fs-4xl:        2rem;      /* 32   */
+  --fs-5xl:        2.75rem;   /* 44   */
+  --fs-6xl:        4rem;      /* 64   */
+
+  /* Line heights */
+  --lh-tight: 1.15;
+  --lh-snug:  1.3;
+  --lh-body:  1.55;
+  --lh-loose: 1.75;
+
+  /* Weights */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* Letter spacing */
+  --tracking-tight:    -0.015em;
+  --tracking-snug:     -0.005em;
+  --tracking-normal:   0;
+  --tracking-wide:     0.02em;
+  --tracking-ucase:    0.08em;
+  --tracking-eyebrow:  0.14em;
+  --tracking-version:  0.18em;
+}
+
+/* ==========================================================================
+   5. SPACING, RADIUS, SHADOWS, MOTION
+   Spacing keeps the Korza rhythm. Radii are slightly softer than Korza's
+   (4 / 8 / 12 px instead of 2 / 4 / 6) to match Catppuccin's pillowy feel.
+   Shadows layer the crust colour on dark flavors and soft gray on Latte.
+   ========================================================================== */
+:root {
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 2rem;
+  --space-8: 2.5rem;
+  --space-9: 3.5rem;
+  --space-10: 4.5rem;
+  --space-11: 6rem;
+
+  /* Layout — mirror the Korza shell */
+  --header-height:     56px;
+  --sidebar-width:     288px;
+  --sidebar-collapsed: 64px;
+  --content-max:       1160px;
+  --content-max-wide:  1320px;
+
+  /* Radii — softer than Korza */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;   /* default for cards, buttons */
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* Shadows — gentle, layered with crust on dark flavors. */
+  --shadow-xs: 0 1px 1px rgba(0,0,0,.18);
+  --shadow-sm: 0 2px 6px rgba(0,0,0,.22);
+  --shadow-md: 0 6px 18px rgba(0,0,0,.28);
+  --shadow-lg: 0 16px 40px rgba(0,0,0,.35);
+  --shadow-card-hover: 0 8px 22px rgba(0,0,0,.30);
+  --shadow-chrome: 0 1px 0 rgba(255,255,255,0.04), 0 4px 18px rgba(0,0,0,0.36);
+  --shadow-tooltip: 0 4px 14px rgba(0,0,0,0.32);
+  --shadow-mobile-sidebar: 4px 0 24px rgba(0,0,0,0.32);
+  --shadow-ring: inset 0 0 0 1px var(--border-soft);
+
+  /* Motion */
+  --easing:     cubic-bezier(.2, 0, 0, 1);
+  --easing-out: cubic-bezier(.22, 1, .36, 1);
+  --dur-fast: 120ms;
+  --dur-base: 180ms;
+  --dur-slow: 280ms;
+}
+
+/* Latte — softer, gray-tinted shadows since the base is light. */
+[data-ctp-flavor="latte"] {
+  --shadow-xs: 0 1px 2px rgba(76,79,105,.10);
+  --shadow-sm: 0 2px 8px rgba(76,79,105,.14);
+  --shadow-md: 0 6px 20px rgba(76,79,105,.16);
+  --shadow-lg: 0 16px 40px rgba(76,79,105,.20);
+  --shadow-card-hover: 0 8px 22px rgba(76,79,105,.18);
+  --shadow-chrome: 0 1px 0 rgba(255,255,255,0.04), 0 2px 10px rgba(76,79,105,0.16);
+  --shadow-tooltip: 0 4px 14px rgba(76,79,105,0.20);
+  --shadow-mobile-sidebar: 4px 0 24px rgba(76,79,105,0.18);
+}
+
+/* ==========================================================================
+   6. BASE ELEMENT STYLES
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { color-scheme: dark; }
+[data-ctp-flavor="latte"] { color-scheme: light; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--fs-lg);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  color: var(--fg-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-snug);
+  margin: 0 0 var(--space-4);
+}
+h1 { font-size: var(--fs-5xl); letter-spacing: var(--tracking-tight); }
+h2 { font-size: var(--fs-4xl); }
+h3 { font-size: var(--fs-3xl); }
+h4 { font-size: var(--fs-2xl); }
+h5 { font-size: var(--fs-xl); }
+h6 {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+}
+
+p { margin: 0 0 var(--space-4); }
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  text-decoration-color: color-mix(in srgb, var(--primary) 50%, transparent);
+  text-underline-offset: 2px;
+  transition: color var(--dur-fast) var(--easing),
+              text-decoration-color var(--dur-fast) var(--easing);
+}
+a:hover { text-decoration: underline; text-decoration-color: var(--primary); }
+a:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-soft);
+  border-radius: var(--radius-xs);
+}
+
+small, .caption { font-size: var(--fs-sm); color: var(--fg-muted); }
+strong, b      { font-weight: var(--fw-bold); color: var(--fg-display); }
+em, i          { font-style: italic; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--border-soft);
+  margin: var(--space-7) 0;
+}
+
+code, kbd, pre, samp {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+code {
+  background: var(--surface-hi);
+  color: var(--ctp-peach);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-xs);
+}
+pre {
+  background: var(--bg-alt);
+  color: var(--fg);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  line-height: var(--lh-snug);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--ctp-mauve) 45%, transparent);
+  color: var(--fg-display);
+}
+
+/* Scrollbars — pastel, low-contrast */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ctp-surface-2) transparent;
+}
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: var(--ctp-surface-2);
+  border-radius: var(--radius-pill);
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--ctp-surface-2) 70%, var(--ctp-mauve));
+}
+
+/* ==========================================================================
+   7. KORZA SIGNATURE MOTIFS — recoloured Catppuccin
+   Same class names as korza_green_style.css. The mauve-as-accent / pink-as-
+   secondary mapping replaces the teal/teal-soft pair, so cream→teal panels
+   become surface→mauve panels.
+   ========================================================================== */
+
+/* Eyebrow — short mauve rule + ALL CAPS mauve label */
+.korza-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+}
+.korza-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* Card — surface body, hairline, optional mauve top bar */
+.korza-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-6) var(--space-7);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--dur-base) var(--easing),
+              transform var(--dur-base) var(--easing),
+              box-shadow var(--dur-base) var(--easing);
+}
+.korza-card--bar::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--accent);
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+}
+.korza-card--cream {
+  background: var(--bg-alt);
+  border-color: var(--border-soft);
+}
+.korza-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Section divider — full-bleed mauve band with a large numeral */
+.korza-divider {
+  background: var(--accent);
+  color: var(--ctp-base);            /* dark text on light mauve reads cleaner */
+  padding: var(--space-9) var(--space-7);
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-6);
+  border-radius: var(--radius-lg);
+}
+.korza-divider__num {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-6xl);
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+}
+.korza-divider__title {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-4xl);
+  letter-spacing: var(--tracking-snug);
+}
+
+/* KPI tile */
+.korza-kpi {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  position: relative;
+  box-shadow: var(--shadow-xs);
+}
+.korza-kpi::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+  border-top-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-md);
+}
+.korza-kpi__label {
+  color: var(--accent);
+  font-size: var(--fs-eyebrow-sm);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+}
+.korza-kpi__value {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-3xl);
+  color: var(--fg-display);
+  line-height: 1;
+}
+.korza-kpi__sub {
+  font-size: var(--fs-sm);
+  color: var(--fg-muted);
+  line-height: 1.35;
+}
+.korza-delta--up   { color: var(--ctp-green); }   /* green is the natural up */
+.korza-delta--down { color: var(--ctp-red); }
+
+/* Quote block — mauve background, giant Georgia open-quote, thin rule */
+.korza-quote {
+  background: var(--accent);
+  color: var(--ctp-base);
+  padding: var(--space-7) var(--space-7) var(--space-6) var(--space-7);
+  border-radius: var(--radius-md);
+  position: relative;
+  box-shadow: var(--shadow-md);
+}
+.korza-quote::before {
+  content: "\201C";
+  font-family: var(--font-serif);
+  font-size: 88px;
+  line-height: 1;
+  position: absolute;
+  top: 8px;
+  left: var(--space-6);
+  opacity: 0.85;
+}
+.korza-quote__text {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-2xl);
+  line-height: 1.3;
+  margin: var(--space-7) 0 var(--space-5) 0;
+  letter-spacing: var(--tracking-snug);
+}
+.korza-quote__rule {
+  height: 1px;
+  width: 48px;
+  background: var(--ctp-base);
+  opacity: 0.5;
+  margin-bottom: var(--space-3);
+}
+.korza-quote__attrib {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  letter-spacing: var(--tracking-ucase);
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* Before / after — surface + mauve pair */
+.korza-before-after {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+.korza-before-after__before {
+  background: var(--bg-alt);
+  color: var(--fg);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-soft);
+}
+.korza-before-after__after {
+  background: var(--accent);
+  color: var(--ctp-base);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Timeline — horizontal mauve rule with dots */
+.korza-timeline {
+  position: relative;
+  padding: var(--space-5) 0 var(--space-2) 0;
+}
+.korza-timeline::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 50%;
+  height: 1px;
+  background: var(--accent);
+}
+.korza-timeline__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: inline-block;
+  position: relative;
+  box-shadow: 0 0 0 3px var(--bg);
+}
+
+/* Pill / tag */
+.korza-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--tint-primary);
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--tracking-ucase);
+  text-transform: uppercase;
+}
+.korza-pill--solid {
+  background: var(--accent);
+  color: var(--ctp-base);
+}
+.korza-pill--ghost {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+/* Buttons */
+.korza-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--surface);
+  color: var(--fg-display);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-normal);
+  cursor: pointer;
+  transition: background var(--dur-base) var(--easing),
+              color var(--dur-base) var(--easing),
+              border-color var(--dur-base) var(--easing),
+              transform var(--dur-base) var(--easing),
+              box-shadow var(--dur-base) var(--easing);
+}
+.korza-btn:hover { border-color: var(--accent); color: var(--accent); }
+.korza-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-soft);
+}
+.korza-btn--solid {
+  background: var(--accent);
+  color: var(--ctp-base);
+  border-color: var(--accent);
+}
+.korza-btn--solid:hover {
+  background: color-mix(in srgb, var(--accent) 88%, var(--ctp-text));
+  color: var(--ctp-base);
+  border-color: transparent;
+}
+.korza-btn--ghost {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  font-size: var(--fs-eyebrow-sm);
+  font-weight: var(--fw-bold);
+  padding: 8px 14px;
+}
+.korza-btn--ghost:hover {
+  background: var(--accent);
+  color: var(--ctp-base);
+}
+
+/* App header — mantle band with subtext title and mauve accent */
+.korza-app-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-height);
+  background: var(--chrome);
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  padding: 0 var(--space-5);
+  z-index: 100;
+  box-shadow: var(--shadow-chrome);
+  border-bottom: 1px solid var(--border-soft);
+}
+.korza-app-header__title {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 17px;
+  letter-spacing: 0.01em;
+  color: var(--fg-display);
+}
+.korza-app-header__version {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  color: var(--accent);
+  letter-spacing: var(--tracking-version);
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+/* Sidebar — surface-0 rail with mauve active markers */
+.korza-sidebar {
+  background: var(--bg-alt);
+  border-right: 1px solid var(--border-soft);
+  width: var(--sidebar-width);
+}
+.korza-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: var(--fw-medium);
+  cursor: pointer;
+  transition: background var(--dur-base) var(--easing),
+              color var(--dur-base) var(--easing);
+}
+.korza-sidebar__item:hover {
+  background: var(--bg-deep);
+  color: var(--accent);
+}
+.korza-sidebar__item.is-active {
+  background: var(--surface);
+  color: var(--accent);
+  font-weight: var(--fw-bold);
+  position: relative;
+}
+.korza-sidebar__item.is-active::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Tooltip — crust with text on top */
+.korza-tooltip {
+  background: var(--ctp-crust);
+  color: var(--ctp-text);
+  font-family: var(--font-body);
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-tooltip);
+  border: 1px solid var(--border-soft);
+}
+
+/* ==========================================================================
+   8. ACCESSIBILITY HELPERS
+   ========================================================================== */
+.korza-sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+  white-space: nowrap; border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   9. PRINT
+   Force a Latte-ish render so anything printed reads on white paper.
+   ========================================================================== */
+@media print {
+  :root {
+    --bg:        #FFFFFF;
+    --bg-alt:    #FFFFFF;
+    --surface:   #FFFFFF;
+    --fg:        #1e1e2e;
+    --fg-display:#11111b;
+    --fg-muted:  #4c4f69;
+    --border-soft: #ccd0da;
+    --chrome:    #cba6f7;
+  }
+  .korza-app-header,
+  .korza-sidebar { display: none !important; }
+  .korza-card,
+  .korza-kpi,
+  .korza-quote,
+  .korza-tooltip { box-shadow: none; }
+  a { color: var(--ctp-mauve); text-decoration: underline; }
+}
